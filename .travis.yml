@@ -16,18 +16,18 @@ before_install:
   - export PATH=$M2_HOME/bin:$PATH
 
 install:
-  - mvn -Drat.ignoreErrors=true --file pom.xml --settings .settings.xml test -Dmaven.javadoc.skip=true -Djava.security.egd=file:/dev/./urandom -B -V
+  - mvn -Drat.ignoreErrors=true --file pom.xml --settings .settings.xml test -Dmaven.javadoc.skip=true -V
 
 deploy:
   # deploy develop 1.0.x to oss
   - provider: script
     skip_cleanup: true
-    script: mvn -Drat.ignoreErrors=true --file pom.xml --settings .settings.xml deploy -DskipTests=true -Djava.security.egd=file:/dev/./urandom -B -V
+    script: mvn -Drat.ignoreErrors=true --file pom.xml --settings .settings.xml deploy -DskipTests=true -V
     on:
       branch: 1.0.x
   # Push release to oss
   - provider: script
     skip_cleanup: true
-    script: mvn -Drat.ignoreErrors=true --file pom.xml --settings .settings.xml deploy -DskipTests=true -Djava.security.egd=file:/dev/./urandom -Prelease-sign-artifacts -B -V
+    script: mvn -Drat.ignoreErrors=true --file pom.xml --settings .settings.xml deploy -DskipTests=true -Prelease-sign-artifacts -V
     on:
       tags: true
