@@ -34,14 +34,6 @@
   <description>Apache Commons DBCP software implements Database Connection Pooling</description>
   <url>https://commons.apache.org/proper/commons-dbcp/</url>
 
-  <distributionManagement>
-    <!-- Cannot define in parent ATM, see COMMONSSITE-26 -->
-    <site>
-      <id>apache.website</id>
-      <name>Apache Commons Site</name>
-      <url>scm:svn:https://svn.apache.org/repos/infra/websites/production/commons/content/proper/commons-dbcp/</url>
-    </site>
-  </distributionManagement>
 
   <issueManagement>
     <system>jira</system>
@@ -53,6 +45,19 @@
     <developerConnection>scm:git:https://github.com/ikasanEIP/commons-dbcp.git</developerConnection>
     <url>scm:git:https://github.com/ikasanEIP/commons-dbcp.git</url>
   </scm>
+
+  <distributionManagement>
+    <repository>
+      <id>ikasaneip-releases</id>
+      <name>Ikasan EIP Releases Repository</name>
+      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+    </repository>
+    <snapshotRepository>
+      <id>ikasaneip-snapshots</id>
+      <name>Ikasan EIP Snapshot Repository</name>
+      <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+    </snapshotRepository>
+  </distributionManagement>
 
   <developers>
     <developer>
