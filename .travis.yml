@@ -15,8 +15,9 @@ before_install:
   - if [ ! -d $M2_HOME/bin ]; then curl https://archive.apache.org/dist/maven/maven-3/3.8.4/binaries/apache-maven-3.8.4-bin.tar.gz | tar zxf - -C $HOME; fi
   - export PATH=$M2_HOME/bin:$PATH
 
-install:
-  - mvn -Drat.ignoreErrors=true --file pom.xml --settings .settings.xml test -Dmaven.javadoc.skip=true -V
+install: skip
+
+script:  mvn -Drat.ignoreErrors=true --file pom.xml --settings .settings.xml test -Dmaven.javadoc.skip=true -V
 
 deploy:
   # deploy develop 1.0.x to oss
